@@ -1,6 +1,6 @@
 #include <iostream>
 
-void multiply_n_x_n_matrix(const int* mat_a,const int* mat_b,int total_row_a,int total_row_b,int row_size_a,int row_size_b,const int total_column_b,int column_size_b);
+void fetch_row_column_from_two_matrix(const int* mat_a,const int* mat_b,int total_row_a,int total_row_b,int row_size_a,int row_size_b,const int total_column_b,int column_size_b);
 
 int main() {
     int A[] = {
@@ -13,15 +13,15 @@ int main() {
         1, 0, 3
     };
 
-    multiply_n_x_n_matrix(A,B,2,3,10,3,3,3);
+    fetch_row_column_from_two_matrix(A,B,2,3,10,3,3,3);
 
 }
 
 //* means ok state
 //? means chaos state
-void multiply_n_x_n_matrix(const int* mat_a,const int* mat_b,int total_row_a,int total_row_b,int row_size_a,int row_size_b,const int total_column_b,int column_size_b) {
+void fetch_row_column_from_two_matrix(const int* mat_a,const int* mat_b,int total_row_a,int total_row_b,int row_size_a,int row_size_b,const int total_column_b,int column_size_b) {
    // if (row_size_a != column_size_b) throw std::invalid_argument("AxB Matrix multiplication is not possible. in equal row_size_a & column_size_b");
-    //*  ok
+    //*  row fetching
     for (int row = 0; row < total_row_a; row++) { // * we know the total number of row in matrix A
         const auto current_row = (row*row_size_a);
             for (int items_from_row = 0;items_from_row<row_size_a;items_from_row++) { // * we know the length of each row from matrix A
@@ -32,10 +32,10 @@ void multiply_n_x_n_matrix(const int* mat_a,const int* mat_b,int total_row_a,int
     }
 
     printf("\n");
-    // ? maybe working
-    const int total_iteration = column_size_b * row_size_b;
+    // * column fetching
+    const int total_internal_iteration = row_size_b * column_size_b ;
     for (int column_head = 0; column_head < row_size_b; column_head++) {
-        for (int column_item = column_head;column_item < total_iteration; column_item+=row_size_b) {
+        for (int column_item = column_head;column_item < total_internal_iteration; column_item+=row_size_b) {
             printf("%d ",mat_b[column_item]);
         }
         printf("==column\n");
