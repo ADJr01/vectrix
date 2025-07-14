@@ -13,7 +13,7 @@ int main() {
         1, 0
     };
 
-    multiply_n_x_n_matrix(A,B,2,3,10,2,3,2);
+    multiply_n_x_n_matrix(A,B,2,3,10,2,2,3);
 
 }
 
@@ -32,12 +32,13 @@ void multiply_n_x_n_matrix(const int* mat_a,const int* mat_b,int total_row_a,int
     }
     */
     printf("\n");
-    // ? confused
+    // ? maybe working
+    const int total_iteration = column_size_b * row_size_b;
     for (int column_head = 0; column_head < row_size_b; column_head++) {
-        const auto current_column = column_head<1? (column_head*total_column_b):(column_head*total_column_b)+column_size_b;
-        printf("index:%d==(%d) ",current_column,mat_b[current_column]);
-
-        printf("\t");
+        for (int column_item = column_head;column_item < total_iteration; column_item+=row_size_b) {
+            printf("%d ",mat_b[column_item]);
+        }
+        printf("\n");
     }
 }
 
