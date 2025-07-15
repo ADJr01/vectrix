@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "vectrix/matrix/MatrixPartition.h"
+
 void fetch_row_column_from_two_matrix(const int* mat_a,const int* mat_b,int total_row_a,int total_row_b,int row_size_a,int row_size_b,const int total_column_b,int column_size_b);
 
 int main() {
@@ -8,12 +10,17 @@ int main() {
         9, -3,9,0,0,1,2,3,3,3
     };
     int B[] = {
-        1, 9, 6,
+        33, 19, 66,
         2, -2, -7,
         1, 0, 3
     };
+    MatrixPartition mp(2,10,A);
+    auto arr = mp.getNthColumnPartition(0);
+    for (int i =0;i<10;i++) {
+        std::cout <<arr[i] << " ";
+    }
 
-    fetch_row_column_from_two_matrix(A,B,2,3,10,3,3,3);
+    return 0;
 
 }
 
