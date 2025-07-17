@@ -47,11 +47,6 @@ public:
 
         return Column;
     }
-    void logMatrix(){
-        for (int i=0;i<this->length;i++) {
-            std::cout << this->matrix[i] << " ";
-        }
-    }
 
     ~MatrixPartition() {
         delete[] this->matrix;
