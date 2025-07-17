@@ -14,7 +14,7 @@ int main() {
         2, -2, -7,
         1, 0, 3
     };
-    MatrixPartition mp(2,10,A);
+    MatrixPartition<int> mp(2,10,A);
     auto arr = mp.getNthColumnPartition(1).data();
     for (int i =0;i<2;i++) {
         std::cout <<arr[i] << " ";

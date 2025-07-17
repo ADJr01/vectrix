@@ -7,7 +7,8 @@
 #include <iostream>
 #include <span>
 #include <vector>
-
+template<typename T>
+requires std::is_arithmetic_v<T>
 class MatrixPartition {
 private:
     int row;
