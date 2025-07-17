@@ -48,6 +48,10 @@ public:
         return Column;
     }
 
+    T& GET_MATRIX() {
+        return this->matrix;
+    }
+
     ~MatrixPartition() {
         delete[] this->matrix;
     }
